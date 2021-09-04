@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Entity
@@ -11,9 +12,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long usuarioId;
+
+    @NotEmpty(message = "Obrigatório informar o nome do usuário")
     private String nome;
+
+    @NotEmpty(message = "Obrigatório informar o e-email do usuário")
     private String email;
+
+    @NotEmpty(message = "Obrigatório informar o sexo do usuário")
     private String sexo;
+
+    @NotEmpty(message = "Obrigatório informar a data de nascimento do usuário")
     private Date nascimento;
 
 
